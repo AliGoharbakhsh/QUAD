@@ -1,0 +1,39 @@
+ 
+ <div class="bg-secondary bg-opacity-10"style="height: 1500px;">
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
+  <div >
+    <a class="navbar-brand" routerLink="/">QUAD</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+  </div>
+  </nav>
+<div class="container  py-3">
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav justify-content-center nav-pills bg-secondary bg-opacity-25">
+    <li class="nav-item" [ngbNavItem]="1">
+      <a class="btn  btn-lg m-2"  ngbNavLink>User</a>
+      <ng-template ngbNavContent>
+        <app-user-list [userList]="userList"></app-user-list>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a class="btn  btn-lg m-2" ngbNavLink>Group</a>
+      <ng-template ngbNavContent>
+        <app-group-list [groupList]="groupList"></app-group-list>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+      <a class="btn btn-lg m-2" ngbNavLink>User Access</a>
+      <ng-template ngbNavContent>
+        <app-user-access [userAccessList]="userAccessList" [userList]="userList" [groupList]="groupList">
+        </app-user-access>
+      </ng-template>
+    </li>
+   
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-4"></div>  
+
+</div>
+</div>

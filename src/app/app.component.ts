@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input, OnInit } from '@angular/core';
 import { Group } from './group';
 import { User } from './user';
 import { UserAccess } from './userAccess';
@@ -9,7 +9,7 @@ import { UserAccess } from './userAccess';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'user-access';
+    title = 'user-access';
   active = 1;
   userList: User[] = [];
   groupList: Group[] = [];

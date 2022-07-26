@@ -4,44 +4,56 @@
   <button class="btn btn-primary m-1" (click)="save()" *ngIf="listMode=='edit'" [disabled]="!isValidSave">
     <i class="fa-regular fa-floppy-disk  "></i>
   </button>
-  <div class="mb-4">
-    <button class="btn btn-success " *ngIf="listMode!='edit'">
-      <i class="fa-solid fa-pen-to-square fa-2x m-1" (click)="toggleEditMode()"></i>
+  <div class="">
+    <button class="btn btn-success btn-sm " *ngIf="listMode!='edit'">
+      <i class="fa-solid fa-pen-to-square fa-1x p-1" (click)="toggleEditMode()">  Edit</i>
     </button>
   </div>
 
 </div>
 <form>
-  <table class="table table-striped table-inverse table-responsive table-bordered">
+  <table class="table ">
     <thead class="thead-inverse" *ngIf="listMode!='edit'" [formGroup]="formGroup">
       <tr>
         <th>
-          <input placeholder="Group Id" class="form-control" formControlName="groupId">
+          <input placeholder="Group Id" class="form-control border border-dark border-opacity-50 taCen" formControlName="groupId">
         </th>
         <th>
-          <input placeholder="Group Name" class="form-control" formControlName="groupName">
+          <input placeholder="Group Name" class="form-control border border-dark border-opacity-50 taCen" formControlName="groupName">
         </th>
         <th>
-          <input placeholder="Description" class="form-control" formControlName="description">
+          <input placeholder="Description" class="form-control border border-dark border-opacity-50 taCen" formControlName="description">
         </th>
       </tr>
     </thead>
     <thead class="thead-inverse" *ngIf="listMode=='edit'">
       <tr>
         <th>
-          <button class="btn btn-primary btn-sm" (click)="addGroup()">New
-          </button>
-        </th>
+          <button class="btn btn-primary" (click)="addGroup()">New</button>
+        <!-- </th>
         <th> Group Id </th>
         <th> Group Name </th>
         <th> Description </th>
-      </tr>
+      </tr> -->
+    </th>
+    <th >
+      <input placeholder="Group Id" class="form-control border border-dark border-opacity-50 taCen "  >
+    </th>
+    <th >
+      <input placeholder="Group Name" class="form-control border border-dark border-opacity-50 taCen "  >
+    </th>
+    <th >
+      <input placeholder="Description" class="form-control border border-dark border-opacity-50 taCen "  >
+    </th>
+
+
+
     </thead>
     <tbody *ngIf="listMode!='edit'">
       <tr *ngFor="let group of clonedList;let index=index;">
-        <td scope="row">{{group.groupId}}</td>
-        <td> {{group.groupName }}</td>
-        <td>{{group.description}}</td>
+        <td class="taCen ">{{group.groupId}}</td>
+        <td class="taCen "> {{group.groupName }}</td>
+        <td class="taCen ">{{group.description}}</td>
 
       </tr>
     </tbody>
@@ -56,12 +68,12 @@
                   <!-- Delete -->
                 </button>
               </td>
-              <td scope="row" *ngIf="isExistInGroupList(groupForm.value.groupId)">{{groupForm.value.groupId}}</td>
-              <td scope="row" *ngIf="!isExistInGroupList(groupForm.value.groupId)">
-                <input formControlName="groupId" class="form-control">
+              <td class=" pt-3 taCen" scope="row" *ngIf="isExistInGroupList(groupForm.value.groupId)">{{groupForm.value.groupId}}</td>
+              <td class=" taCen" scope="row" *ngIf="!isExistInGroupList(groupForm.value.groupId)">
+                <input formControlName="groupId" class="form-control taCen">
               </td>
               <td>
-                <input formControlName="groupName" class="form-control">
+                <input formControlName="groupName" class="form-control taCen">
               </td>
               <td>
                 <input formControlName="description" class="form-control">

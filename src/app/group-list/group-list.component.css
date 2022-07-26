@@ -1,0 +1,13 @@
+.taCen{
+
+    text-align: center;
+    width: 8rem;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+ th, td,tr ,tbody {
+    border: none;
+    border-style: none;
+  }
